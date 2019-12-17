@@ -8,6 +8,11 @@ import org.junit.Test;
  * @author leon on 10/01/2019.
  */
 public class ParseCharactersTest {
+    private void test(String input, Character[] expected) {
+        Character[] actual = StringParser.parseCharacters(input);
+        TestUtils.assertArrayEquals(expected, actual);
+    }
+
     @Test
     public void test1() {
         test("123", new Character[]{'1','2','3'});
@@ -26,10 +31,5 @@ public class ParseCharactersTest {
     @Test
     public void test4() {
         test(null, null);
-    }
-
-    private void test(String input, Character[] expected) {
-        Character[] actual = StringParser.parseCharacters(input);
-        TestUtils.assertArrayEquals(expected, actual);
     }
 }
